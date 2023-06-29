@@ -1,0 +1,25 @@
+server:
+  port: 8080
+  ssl:
+    key-alias: unique-name # this should be unique
+    key-store-password: password
+    key-store-type: PKCS12
+    key-store: classpath:madeeasy.p12
+
+
+# to see alias name ::
+# keytool -list -keystore <keystore file name>
+
+# keytool -genkey -alias unique-name -storetype PKCS12 -keyalg RSA -keysize 2048 -keystore keystore.p12 -validity 3650
+#
+#
+# In this command:
+#  - `-genkey` specifies that a new key pair should be generated.
+#  - `-alias unique-name` sets the alias name to "unique-name".
+#  - `-storetype PKCS12` defines the keystore type as PKCS12.
+#  - `-keyalg RSA` specifies the key algorithm as RSA.
+#  - `-keysize 2048` sets the key size to 2048 bits.
+#  - `-keystore madeeasy.p12` specifies the name of the keystore file as "madeeasy.p12".
+#  - `-validity 3650` sets the validity period of the key entry to 3650 days (10 years).
+#
+#  Make sure to replace "madeeasy.p12" with the desired path and filename for your keystore file i.e. set the file in src/main/resources .
